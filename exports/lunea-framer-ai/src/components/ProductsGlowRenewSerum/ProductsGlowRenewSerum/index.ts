@@ -1,0 +1,1 @@
+export { ProductsGlowRenewSerum } from "./ProductsGlowRenewSerum";

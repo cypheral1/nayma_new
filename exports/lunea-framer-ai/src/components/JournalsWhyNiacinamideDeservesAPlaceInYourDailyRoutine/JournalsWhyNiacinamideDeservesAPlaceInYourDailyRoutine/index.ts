@@ -1,0 +1,1 @@
+export { JournalsWhyNiacinamideDeservesAPlaceInYourDailyRoutine } from "./JournalsWhyNiacinamideDeservesAPlaceInYourDailyRoutine";

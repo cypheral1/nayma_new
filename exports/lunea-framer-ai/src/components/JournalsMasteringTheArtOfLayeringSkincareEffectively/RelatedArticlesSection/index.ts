@@ -1,0 +1,1 @@
+export { RelatedArticlesSection } from "./RelatedArticlesSection";
