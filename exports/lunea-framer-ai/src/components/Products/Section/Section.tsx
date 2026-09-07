@@ -1,6 +1,8 @@
 import styles from "./Section.module.css";
 import { Image } from "../../../ui/Image";
 import Link from "next/link";
+import { ProductsClouds } from "../../common/ProductsClouds";
+
 export function Section() {
   return (
     <section className={styles.section} id={"main"}>
@@ -47,7 +49,8 @@ export function Section() {
             </div>
           </div>
         </header>
-        <div className={styles.explore}>
+        <div className={styles.explore} style={{ position: "relative" }}>
+          <ProductsClouds variant="ambient" />
           <div className={styles.explore2}>
             <section className={styles.sectionTitle}>
               <div className={styles.dailySkinEssentials}>

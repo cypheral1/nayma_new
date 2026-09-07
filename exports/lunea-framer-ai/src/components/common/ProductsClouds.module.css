@@ -1,0 +1,116 @@
+/* Products Section Floating Clouds */
+
+.cloudsContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.cloud {
+  position: absolute;
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.cloudImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Placements */
+.cloud1 {
+  top: 4%;
+  left: -2%;
+  width: clamp(240px, 28vw, 480px);
+  opacity: 0.75;
+  animation: cloudDrift1 14s ease-in-out infinite alternate;
+}
+
+.cloud2 {
+  top: 8%;
+  right: -3%;
+  width: clamp(260px, 30vw, 520px);
+  opacity: 0.8;
+  animation: cloudDrift2 16s ease-in-out infinite alternate 2s;
+}
+
+.cloud3 {
+  top: 48%;
+  left: -4%;
+  width: clamp(220px, 26vw, 440px);
+  opacity: 0.65;
+  animation: cloudDrift3 18s ease-in-out infinite alternate 4s;
+}
+
+.cloud4 {
+  bottom: 6%;
+  right: -2%;
+  width: clamp(280px, 34vw, 580px);
+  opacity: 0.75;
+  animation: cloudDrift4 15s ease-in-out infinite alternate 1s;
+}
+
+/* Subtle Floating Drift Keyframes */
+@keyframes cloudDrift1 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(14px, -10px); }
+  100% { transform: translate(-8px, 12px); }
+}
+
+@keyframes cloudDrift2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-16px, 12px); }
+  100% { transform: translate(10px, -14px); }
+}
+
+@keyframes cloudDrift3 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(12px, 14px); }
+  100% { transform: translate(-10px, -8px); }
+}
+
+@keyframes cloudDrift4 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-14px, -12px); }
+  100% { transform: translate(8px, 10px); }
+}
+
+/* Variant Styles */
+.dense .cloud1,
+.dense .cloud2,
+.dense .cloud4 {
+  opacity: 0.9;
+}
+
+.hero .cloud1 {
+  top: 2%;
+  width: clamp(300px, 35vw, 600px);
+}
+
+.hero .cloud2 {
+  top: 5%;
+  width: clamp(280px, 32vw, 560px);
+}
+
+@media (max-width: 768px) {
+  .cloud1 {
+    width: 220px;
+    opacity: 0.6;
+  }
+  .cloud2 {
+    width: 240px;
+    opacity: 0.65;
+  }
+  .cloud3 {
+    width: 180px;
+    opacity: 0.5;
+  }
+  .cloud4 {
+    width: 260px;
+    opacity: 0.65;
+  }
+}

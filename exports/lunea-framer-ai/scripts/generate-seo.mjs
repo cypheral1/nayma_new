@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-const PAGE_PATHS = ["/","/guideline","/journals/why-niacinamide-deserves-a-place-in-your-daily-routine","/journals/the-science-behind-retinol","/journals/hydration-heroes-the-best-moisturizers-for-every-skin-type","/products","/journals/the-rise-of-clean-beauty-what-it-really-means","/journals/mastering-the-art-of-layering-skincare-effectively","/journals/seasonal-skincare-swaps-what-to-change-and-when","/products/glow-renew-serum","/products/overnight-recovery-mask","/products/gentle-cream-cleanser-1","/products/hydrating-essence-mist","/products/gentle-cream-cleanser","/products/daily-uv-shield-spf-50-sunscreen"];
+const PAGE_PATHS = ["/","/guideline","/journals/why-niacinamide-deserves-a-place-in-your-daily-routine","/journals/the-science-behind-retinol","/journals/hydration-heroes-the-best-moisturizers-for-every-skin-type","/products","/journals/the-rise-of-clean-beauty-what-it-really-means","/journals/mastering-the-art-of-layering-skincare-effectively","/journals/seasonal-skincare-swaps-what-to-change-and-when","/products/glow-renew-serum","/products/for-her-sanitary-pads","/products/overnight-recovery-mask","/products/gentle-cream-cleanser-1","/products/hydrating-essence-mist","/products/gentle-cream-cleanser","/products/daily-uv-shield-spf-50-sunscreen"];
 const root = process.cwd();
 
 async function readEnv(name) {

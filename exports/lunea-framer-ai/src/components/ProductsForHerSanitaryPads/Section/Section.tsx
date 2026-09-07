@@ -1,7 +1,7 @@
 import styles from "./Section.module.css";
 import { Image } from "../../../ui/Image";
 import Link from "next/link";
-import { ProductHeroStage } from "../ProductHeroStage";
+import { ForHerHeroStage } from "../ForHerHeroStage";
 export function Section() {
   return (
     <section className={styles.section} id={"main"}>
@@ -50,7 +50,7 @@ export function Section() {
         </header>
         <div className={styles.allProduct2}>
           {/* 3D Parallax Landing-Style Hero Stage */}
-          <ProductHeroStage />
+          <ForHerHeroStage />
           <div className={styles.div72}>
             <div className={styles.result}>
               <div className={styles.result2}>

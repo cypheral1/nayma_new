@@ -909,7 +909,7 @@ export function MotionRuntime({
   }, [definitions, interactions, responsiveRevision]);
 
   return (
-    <script
+    <template
       data-framecoded-motion-bootstrap="true"
       dangerouslySetInnerHTML={{ __html: motionBootstrapScript(definitions) }}
     />

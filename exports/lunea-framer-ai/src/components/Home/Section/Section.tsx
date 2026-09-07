@@ -1,6 +1,7 @@
 import styles from "./Section.module.css";
 import { Image } from "../../../ui/Image";
 import Link from "next/link";
+import { ProductsClouds } from "../../common/ProductsClouds";
 export function Section() {
   return (
     <section className={styles.section} id={"main"}>
@@ -548,7 +549,8 @@ export function Section() {
               </div>
             </section>
           </div>
-          <div className={styles.curated}>
+          <div className={styles.curated} style={{ position: "relative" }}>
+            <ProductsClouds variant="ambient" />
             <section className={styles.sectionTitle2}>
               <div className={styles.dailySkinEssentials2}>
                 <h2 className={styles.h2} dir={"auto"}>

@@ -1,6 +1,7 @@
 import styles from "./Section.module.css";
 import { Image } from "../../../ui/Image";
 import Link from "next/link";
+import { ProductsClouds } from "../../common/ProductsClouds";
 export function Section() {
   return (
     <section className={styles.section} id={"main"}>
@@ -47,7 +48,8 @@ export function Section() {
             </div>
           </div>
         </header>
-        <div className={styles.allProduct2}>
+        <div className={styles.allProduct2} style={{ position: "relative" }}>
+          <ProductsClouds variant="ambient" />
           <div className={styles.allProduct3}>
             <div className={styles.breadcrumb}>
               <Link

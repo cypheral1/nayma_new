@@ -1,0 +1,403 @@
+/* Navigation Menu Drawer Styles */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 14, 33, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.backdropActive {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  z-index: 99999;
+  box-shadow: -10px 0 40px rgba(56, 43, 87, 0.15);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(56, 43, 87, 0.08);
+  background: #fafafa;
+}
+
+.brandLogo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.brandTitle {
+  font-family: var(--framer-font-family, "Outfit", sans-serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgb(56, 43, 87);
+}
+
+.brandBadge {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(56, 43, 87, 0.6);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.closeButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 43, 87, 0.12);
+  background: #ffffff;
+  color: rgb(56, 43, 87);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background: rgb(56, 43, 87);
+  color: #ffffff;
+  border-color: rgb(56, 43, 87);
+  transform: rotate(90deg);
+}
+
+.drawerContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 43, 87, 0.2) transparent;
+}
+
+.primaryNav {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.navGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.groupHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.groupLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(56, 43, 87, 0.45);
+}
+
+.viewAllSmall {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(56, 43, 87);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.mainLinksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mainNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #f7f7f9;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(56, 43, 87);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mainNavLink:hover {
+  background: #ede9fe;
+  color: rgb(56, 43, 87);
+  transform: translateX(4px);
+}
+
+.activeNavLink {
+  background: rgb(56, 43, 87);
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.arrowIcon {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.mainNavLink:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+.countBadge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(56, 43, 87, 0.1);
+  color: rgb(56, 43, 87);
+}
+
+.activeNavLink .countBadge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Product list */
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.productCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(56, 43, 87, 0.06);
+  background: #ffffff;
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.productCard:hover {
+  border-color: rgba(56, 43, 87, 0.2);
+  background: #faf8fd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(56, 43, 87, 0.06);
+}
+
+.activeProductCard {
+  border-color: rgb(56, 43, 87);
+  background: #f5f2fb;
+}
+
+.productThumbWrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  background: #f3f3f3;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.productMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.productTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.productTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(56, 43, 87);
+}
+
+.tagBadge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #fde68a;
+  color: #854d0e;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.productCategory {
+  font-size: 12px;
+  color: rgba(56, 43, 87, 0.6);
+}
+
+.productPrice {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgb(56, 43, 87);
+  margin-top: 2px;
+}
+
+/* Journal links */
+.journalList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.journalItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fcfbfe;
+  border: 1px solid rgba(56, 43, 87, 0.05);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.journalItem:hover {
+  background: #f3eff9;
+  border-color: rgba(56, 43, 87, 0.15);
+}
+
+.journalText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.journalTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(56, 43, 87);
+}
+
+.journalRead {
+  font-size: 11px;
+  color: rgba(56, 43, 87, 0.5);
+}
+
+.journalArrow {
+  font-size: 14px;
+  color: rgba(56, 43, 87, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.journalItem:hover .journalArrow {
+  color: rgb(56, 43, 87);
+  transform: translate(2px, -2px);
+}
+
+/* Footer inside drawer */
+.drawerFooter {
+  padding: 20px 28px;
+  border-top: 1px solid rgba(56, 43, 87, 0.08);
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footerLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(56, 43, 87, 0.4);
+}
+
+.footerValue {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(56, 43, 87);
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyright {
+  font-size: 11px;
+  color: rgba(56, 43, 87, 0.45);
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .drawer {
+    max-width: 100%;
+  }
+
+  .drawerContent {
+    padding: 20px;
+  }
+
+  .drawerHeader,
+  .drawerFooter {
+    padding: 16px 20px;
+  }
+}

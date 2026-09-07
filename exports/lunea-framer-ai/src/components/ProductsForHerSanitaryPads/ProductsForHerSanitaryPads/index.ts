@@ -1,0 +1,1 @@
+export { ProductsForHerSanitaryPads } from "./ProductsForHerSanitaryPads";
