@@ -4,7 +4,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./NavigationMenu.module.css";
-import { Image } from "@/ui/Image";
 
 interface NavProduct {
   title: string;
@@ -22,7 +21,7 @@ const FEATURED_PRODUCTS: NavProduct[] = [
     price: "$14.00",
     href: "/products/for-her-sanitary-pads",
     image: "/assets/nayma-sanitary-pad-box.png",
-    tag: "New",
+    tag: "3D View",
   },
   {
     title: "Glow Renew Serum",
@@ -99,48 +98,103 @@ export function NavigationMenu() {
     document.body.style.overflow = "";
   }, []);
 
+  const toggleMenu = useCallback(() => {
+    setIsOpen((prev) => {
+      const next = !prev;
+      document.body.style.overflow = next ? "hidden" : "";
+      return next;
+    });
+  }, []);
+
   // Close menu automatically on route change
   useEffect(() => {
     closeMenu();
   }, [pathname, closeMenu]);
 
-  // Handle global clicks on hamburger buttons
+  // Handle keyboard Escape
   useEffect(() => {
-    const handleGlobalClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement | null;
-      if (!target) return;
-
-      // Check if clicked element or its parent matches the menu hamburger button
-      const menuBtn = target.closest(
-        '[class*="div15"], [aria-label="Open Menu"], button[data-menu-trigger]'
-      );
-
-      // Verify it's indeed the hamburger container (has 3 bars or matches div15)
-      if (menuBtn && !menuBtn.closest(`.${styles.drawer}`)) {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsOpen((prev) => {
-          const next = !prev;
-          document.body.style.overflow = next ? "hidden" : "";
-          return next;
-        });
-      }
-    };
-
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === "Escape" && isOpen) {
         closeMenu();
       }
     };
-
-    window.addEventListener("click", handleGlobalClick, true);
     window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, closeMenu]);
+
+  // Bind click handlers to the header hamburger button
+  useEffect(() => {
+    const isHamburgerElement = (el: HTMLElement | null): boolean => {
+      if (!el) return false;
+      if (el.closest(`.${styles.drawer}`)) return false;
+
+      // Check for explicit trigger data attributes
+      if (el.closest('[data-menu-trigger="true"], [aria-label*="Menu"], [aria-label*="menu"]')) {
+        return true;
+      }
+
+      // Check if clicked the 3 hamburger lines (div11, div12, div13) or their wrapper (div14)
+      if (el.closest('[class*="div11"], [class*="div12"], [class*="div13"], [class*="div14"]')) {
+        return true;
+      }
+
+      // Check inside header navigation
+      const header = el.closest('header, [class*="navbar"]');
+      if (header) {
+        // Ignore clicks on logo link
+        if (el.closest('a[href="/"], [class*="luneaLink"], [class*="lunea4"]')) {
+          return false;
+        }
+        // Ignore clicks on cart pill
+        if (el.closest('[class*="p9"], [class*="p0"], [class*="div16"], [class*="div21"], [class*="variant1"]')) {
+          return false;
+        }
+        // If clicking the brand pill (lunea3) or hamburger wrapper (div15)
+        if (
+          el.closest('[class*="lunea3"]') ||
+          el.closest('[class*="div15"]:not([class*="div150"]):not([class*="div151"]):not([class*="div152"]):not([class*="div154"]):not([class*="div155"]):not([class*="div156"]):not([class*="div157"]):not([class*="div158"]):not([class*="div159"])')
+        ) {
+          return true;
+        }
+      }
+
+      return false;
+    };
+
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (isHamburgerElement(target)) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMenu();
+      }
+    };
+
+    // Attach click listener
+    document.addEventListener("click", handleClick, false);
+
+    // Enhance header buttons with hover styling and accessible attributes
+    const updateButtons = () => {
+      const btns = document.querySelectorAll<HTMLElement>(
+        'header [class*="lunea3"] > div, header [class*="div15"]:not([class*="div150"]):not([class*="div151"]):not([class*="div152"]):not([class*="div154"]):not([class*="div155"]):not([class*="div156"]):not([class*="div157"]):not([class*="div158"]):not([class*="div159"])'
+      );
+      btns.forEach((btn) => {
+        btn.setAttribute("data-menu-trigger", "true");
+        btn.setAttribute("aria-label", "Toggle Navigation Menu");
+        btn.setAttribute("aria-expanded", String(isOpen));
+        btn.setAttribute("role", "button");
+        btn.style.cursor = "pointer";
+      });
+    };
+
+    updateButtons();
+    const timer = setTimeout(updateButtons, 300);
 
     return () => {
-      window.removeEventListener("click", handleGlobalClick, true);
-      window.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("click", handleClick, false);
+      clearTimeout(timer);
     };
-  }, [closeMenu]);
+  }, [toggleMenu, isOpen, pathname]);
 
   return (
     <>
@@ -161,7 +215,7 @@ export function NavigationMenu() {
         <div className={styles.drawerHeader}>
           <Link href="/" className={styles.brandLogo} onClick={closeMenu}>
             <span className={styles.brandTitle}>Nayma</span>
-            <span className={styles.brandBadge}>Pure Science & Nature</span>
+            <span className={styles.brandBadge}>Everyday Care. Timeless Confidence</span>
           </Link>
 
           <button
@@ -170,7 +224,7 @@ export function NavigationMenu() {
             onClick={closeMenu}
             aria-label="Close menu"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>

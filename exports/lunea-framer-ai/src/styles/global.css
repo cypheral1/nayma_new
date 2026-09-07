@@ -1384,3 +1384,30 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Navigation Hamburger & Navbar Interactivity Enhancements */
+header [class*="lunea3"] > div:not([class*="luneaLink"]):not([class*="lunea"]),
+header [class*="div15"]:not([class*="div150"]):not([class*="div151"]):not([class*="div152"]):not([class*="div154"]):not([class*="div155"]):not([class*="div156"]):not([class*="div157"]):not([class*="div158"]):not([class*="div159"]),
+[data-menu-trigger="true"] {
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none;
+}
+
+header [class*="lunea3"] > div:not([class*="luneaLink"]):not([class*="lunea"]):hover,
+header [class*="div15"]:not([class*="div150"]):not([class*="div151"]):not([class*="div152"]):not([class*="div154"]):not([class*="div155"]):not([class*="div156"]):not([class*="div157"]):not([class*="div158"]):not([class*="div159"]):hover,
+[data-menu-trigger="true"]:hover {
+  background-color: rgba(56, 43, 87, 0.1) !important;
+  transform: scale(1.04);
+}
+
+header [class*="lunea3"] > div:not([class*="luneaLink"]):not([class*="lunea"]):active,
+header [class*="div15"]:not([class*="div150"]):not([class*="div151"]):not([class*="div152"]):not([class*="div154"]):not([class*="div155"]):not([class*="div156"]):not([class*="div157"]):not([class*="div158"]):not([class*="div159"]):active,
+[data-menu-trigger="true"]:active {
+  transform: scale(0.96);
+}
+
+header [class*="div14"] {
+  pointer-events: none;
+}
+
