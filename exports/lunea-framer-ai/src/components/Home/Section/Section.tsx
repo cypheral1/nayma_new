@@ -2,54 +2,12 @@ import styles from "./Section.module.css";
 import { Image } from "../../../ui/Image";
 import Link from "next/link";
 import { ProductsClouds } from "../../common/ProductsClouds";
+
 export function Section() {
   return (
     <section className={styles.section} id={"main"}>
       <div className={styles.lunea2} data-layout-template={"true"}>
         <div className={styles.div}></div>
-        <header className={styles.navbar} data-framecoded-motion={"r1d"}>
-          <div className={styles.lunea3} data-border={"true"}>
-            <Link href={"/"} className={styles.luneaLink} data-framer-page-link-current={"true"}>
-              <div className={styles.lunea}>
-                <p className={styles.lunea4} dir={"auto"}>
-                  Nayma
-                </p>
-              </div>
-            </Link>
-            <div className={styles.div15} data-highlight={"true"} tabIndex={0}>
-              <div className={styles.div14}>
-                <div className={styles.div11}></div>
-                <div className={styles.div12}></div>
-                <div className={styles.div13}></div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.p9} data-border={"true"}>
-            <div className={styles.div16}></div>
-            <div className={styles.div21}>
-              <div className={styles.variant1} data-highlight={"true"}>
-                <div className={styles.p92}>
-                  <div className={styles.p93}>
-                    <div className={styles.design} data-border={"true"}>
-                      <div className={styles.p94} data-framecoded-state={"t0s51"}>
-                        <div className={styles.p95} data-framecoded-state={"t0s52"}>
-                          <p className={styles.p96} data-framecoded-state={"t0s53"}>
-                            9
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.p97}>
-              <div className={styles.p98}>
-                <p className={styles.p99}>9</p>
-              </div>
-            </div>
-          </div>
-        </header>
         <div className={styles.daily}>
           <div className={styles.trigger} id={"284ul1"} tabIndex={0}>
             <div className={styles.div24}></div>

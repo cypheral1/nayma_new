@@ -1,52 +1,12 @@
 import styles from "./RelatedArticlesSection.module.css";
 import { Image } from "../../../ui/Image";
 import Link from "next/link";
+
 export function RelatedArticlesSection() {
   return (
     <section className={styles.relatedArticlesSection} id={"main"}>
       <div className={styles.understandingMoisturizers} data-layout-template={"true"}>
         <div className={styles.div}></div>
-        <header className={styles.navbar} data-framecoded-motion={"r68f"}>
-          <div className={styles.lunea2} data-border={"true"}>
-            <Link href={"/"} className={styles.luneaLink}>
-              <div className={styles.lunea}>
-                <p className={styles.lunea3} dir={"auto"}>
-                  Nayma
-                </p>
-              </div>
-            </Link>
-            <div className={styles.div15} data-highlight={"true"} tabIndex={0}>
-              <div className={styles.div14}>
-                <div className={styles.div11}></div>
-                <div className={styles.div12}></div>
-                <div className={styles.div13}></div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.p0} data-border={"true"}>
-            <div className={styles.div16}></div>
-            <div className={styles.div21}>
-              <div className={styles.variant1} data-highlight={"true"}>
-                <div className={styles.p02}>
-                  <div className={styles.p03}>
-                    <div className={styles.design} data-border={"true"}>
-                      <div className={styles.p04}>
-                        <div className={styles.p05}>
-                          <p className={styles.p06}>0</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.p07}>
-              <div className={styles.p08}>
-                <p className={styles.p09}>0</p>
-              </div>
-            </div>
-          </div>
-        </header>
         <div className={styles.understandingMoisturizers2}>
           <div className={styles.understandingMoisturizers3}>
             <div className={styles.journal}>

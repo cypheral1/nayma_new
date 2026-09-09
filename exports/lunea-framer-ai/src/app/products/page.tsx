@@ -6,6 +6,9 @@ import {
   motionDefinitions,
   interactionDefinitions,
 } from "@/components/Products/Products/Products.motion";
+import { getShopifyProducts } from "@/lib/shopify/queries/products";
+
+export const revalidate = 60; // Revalidate every 60 seconds or via on-demand webhook
 
 const structuredData: any[] = [];
 
@@ -30,7 +33,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
+export default async function Page() {
+  const shopifyProducts = await getShopifyProducts(24);
+
   return (
     <>
       {structuredData.map((value, index) => (
@@ -40,7 +45,7 @@ export default function Page() {
           dangerouslySetInnerHTML={{ __html: siteJsonLd(value) }}
         />
       ))}
-      <Products />
+      <Products products={shopifyProducts} />
       <MotionRuntime definitions={motionDefinitions} interactions={interactionDefinitions} />
     </>
   );
